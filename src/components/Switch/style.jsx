@@ -4,8 +4,8 @@ const Outside = styled.div`
 
     display: flex;
     align-items: center;
-    width: 50px;
-    height: 20px;
+    width: 40px;
+    height: 15px;
     border-radius: 15px;
     cursor: pointer;
 
@@ -13,8 +13,8 @@ const Outside = styled.div`
 
 const InsideBoll = styled.div`
 
-    width: 25px;
-    height: 25px;
+    width: 20px;
+    height: 20px;
     background-color: #f1f1f1;
     border-radius: 50%;
 `;

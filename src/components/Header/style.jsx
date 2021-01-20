@@ -12,6 +12,7 @@ export const Container = styled.header`
     img {
         max-width: 372px;
         max-height: auto;
+        margin-bottom: 16px;
 
         @media(max-width: 375px) {
             width: 272px;
@@ -26,11 +27,14 @@ export const ThemeChanger = styled.div`
     justify-content: center;
     align-items: center;
 
+    margin-top: 24px;
+
     span { 
 
         font-size: 15px;
+        font-family: sans-serif;
         margin-right: 10px;
-        color: ${ ({theme}) => theme.colors.color}
+        color: ${ ({theme}) => theme.colors.secondaryColor}
 
     }
 `;

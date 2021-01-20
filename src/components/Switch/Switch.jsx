@@ -2,11 +2,11 @@ import { Outside, InsideBoll } from './style';
 
 function Switch (props) {
 
-    const { onClick,   isDark } = props;
+    const { onClick,   isChecked } = props;
 
-    const side = isDark ? "flex-end" : "flex-start";
-    const Background = isDark ? "#71b404" : "#aeb1aa";
-    const shadowSide = isDark ? "-3px" : "3px" ;
+    const side = isChecked ? "flex-end" : "flex-start";
+    const Background = isChecked ? "#71b404" : "#aeb1aa";
+    const shadowSide = isChecked ? "-3px" : "3px" ;
 
     return (
 

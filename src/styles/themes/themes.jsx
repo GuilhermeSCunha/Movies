@@ -5,7 +5,7 @@ export const Dark = {
 
         background: "#232323",
         
-        color: "#f1f1f1"
+        secondaryColor: "#f1f1f1"
     }
 }
 
@@ -16,6 +16,6 @@ export const Light = {
 
         background: " #fafafa",
 
-        color: "#161616"
+        secondaryColor: "#161616"
     }
 }

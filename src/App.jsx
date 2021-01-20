@@ -1,12 +1,12 @@
-import {useState} from 'react';
 import {Header} from './components/index';
 import { GlobalStyle} from './styles/index';
 import { ThemeProvider } from 'styled-components';
 import {Dark, Light} from './styles/index';
+import usePersistedState from './utils/usePersistedState/usePersistedState';
 
 function App() {
 
-  const [ isDarkTheme, setIsDarkTheme] = useState(false);
+  const [ isDarkTheme, setIsDarkTheme] = usePersistedState( "colorTheme", false);
 
   function changeTheme () {
     setIsDarkTheme(!isDarkTheme);
