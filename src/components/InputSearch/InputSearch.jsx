@@ -1,12 +1,11 @@
 import { SearchContainer } from './style';
-import searchIconBlack from '../../assets/icons/searchIconBlack.png';
-import searchIconWhite from '../../assets/icons/searchIconWhite.png';
+import { IconButton } from "../index";
 
 function InputSearch (props) {
     
     const { isDark, onChange, onClick, value } = props;
 
-    const isDarkMode = isDark ? searchIconWhite : searchIconBlack;
+    const isDarkMode = isDark ? "searchIconWhite" : "searchIconBlack";
 
     return (
         
@@ -14,12 +13,7 @@ function InputSearch (props) {
 
             <input value = {value} onChange = {onChange} type="search" name="search" id="search" placeholder = "write the name of the movie"/>
 
-            {//todo: fazer desse botão um componente
-            }
-
-            <button onClick = {onClick} >
-                <img src= { isDarkMode } alt= "serch icon"/> 
-            </button> 
+            <IconButton onClick = {onClick} iconName = { isDarkMode } alt = "search icon"/>
             
         </SearchContainer>
 
