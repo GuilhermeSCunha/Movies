@@ -3,13 +3,13 @@ import { IconButton } from "../index";
 
 function InputSearch (props) {
     
-    const { isDark, onChange, onClick, value } = props;
+    const { isDark, onChange, onClick, value, isHeader } = props;
 
     const isDarkMode = isDark ? "searchIconWhite" : "searchIconBlack";
 
     return (
         
-        <SearchContainer>
+        <SearchContainer Header = {isHeader} >
 
             <input value = {value} onChange = {onChange} type="search" name="search" id="search" placeholder = "write the name of the movie"/>
 

@@ -6,8 +6,39 @@ export const SearchContainer = styled.div`
     justify-content: center;
     align-items: center;
 
-    width: 582px;
+    max-width: 582px;
     height: 44px;
+
+    &:hover {
+        box-shadow: 0px 0px 10px 3px rgba(39, 39, 39, 0.2);
+    }
+
+
+
+    @media (max-width: 895px) {
+
+        max-width: ${(props) => props.Header ? "500px" : "583px"};
+
+    }
+
+    @media (max-width: 803px) {
+
+        max-width: ${(props) => props.Header ? "400px" : "583px"};
+
+    }
+    @media (max-width: 590px) {
+
+        max-width: ${(props) => props.Header ? "400px" : "320px"};
+
+    }
+
+    @media (max-width: 414px) {
+
+        max-width: ${(props) => props.Header ? "300px" : "320px"};
+
+    }
+
+
     border: 1px solid ${({theme}) => theme.colors.secondaryColor};
     border-radius: 18px;
     padding-right: 10px;
@@ -20,7 +51,7 @@ export const SearchContainer = styled.div`
         outline: none;
 
         width: 582px;
-        min-width: 250px;
+        min-width: 200px;
         height: 44px;
         padding-left: 10px; 
         color: ${({theme}) => theme.colors.secondaryColor};
@@ -31,23 +62,5 @@ export const SearchContainer = styled.div`
         ::-webkit-search-results-decoration {
             display: none;
         }
-
     }
-
-
-    button {
-
-        background-color: transparent;
-        border: none;
-        outline: none;
-        cursor: pointer;
-
-        img {
-        max-height: 30px;
-        max-width: 40px;
-        margin-bottom: 0;
-    }
-        
-    }
-
 `;

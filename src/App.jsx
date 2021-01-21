@@ -27,7 +27,7 @@ function App() {
             <HomePage onClick = {changeTheme} isDark = {isDarkTheme} />
           </Route>
           <Route path="/search">
-              <Search />
+              <Search isDark = {isDarkTheme} headerClick = {changeTheme} />
           </Route>
         </Switch>
     </Router>

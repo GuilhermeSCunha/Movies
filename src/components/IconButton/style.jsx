@@ -9,7 +9,7 @@ export const Button = styled.button`
 
         img {
         max-height: 30px;
-        max-width: 40px;
+        max-width: 30px;
         margin-bottom: 0;
         }
 
