@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import Logo from '../../assets/images/movies_logo.png';
 import { Container, ThemeChanger} from './style';
-import { Switch, InputSearch } from '../index';
+import { Switch, InputSearch } from '../../components/index';
+import { useHistory } from "react-router-dom";
 
-function Header (props) {
+function HomePage (props) {
 
     const { onClick, isDark } = props;
 
@@ -11,10 +12,13 @@ function Header (props) {
 
     const [searchValue, setSearchValue] = useState ("");
 
+    const history = useHistory();
+
     function Search () {
 
         console.log("pesquisou por :: ", searchValue);
         setSearchValue("");
+        history.push("/search");
 
     }
 
@@ -45,4 +49,4 @@ function Header (props) {
     );
 };
 
-export default Header;
+export default HomePage;
