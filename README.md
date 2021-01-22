@@ -2,7 +2,7 @@
     <img alt="logo" src="./src/assets/images/movies_logo.png" width="300" />
 </p>
 
-Movies é um site que te tras informações sobre filmes, bastando você pesquisar pelo nome do filme.
+Movies é um site que te traz informações sobre filmes, bastando você pesquisar pelo nome do filme.
 Esse projeto não tem intenção comercial, foi criado apenas para o estudo de react, styled-components e aplicação de APIs. 
 
 ## stack
