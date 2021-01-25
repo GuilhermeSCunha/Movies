@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import Logo from '../../assets/images/movies_logo.png';
 import { Container, ThemeChanger} from './style';
 import { Switch, InputSearch } from '../../components/index';
@@ -6,18 +5,16 @@ import { useHistory } from "react-router-dom";
 
 function HomePage (props) {
 
-    const { onClick, isDark } = props;
+    const { onClick, isDark, searchValue, onChange} = props;
 
     const theme = isDark ? "off" : "on";
 
-    const [searchValue, setSearchValue] = useState ("");
+    
 
     const history = useHistory();
 
     function Search () {
-
-        console.log("pesquisou por :: ", searchValue);
-        setSearchValue("");
+        
         history.push("/search");
 
     }
@@ -31,7 +28,7 @@ function HomePage (props) {
 
             onClick = {Search}
             isDark = { isDark } 
-            onChange = {(event) => setSearchValue(event.target.value)} 
+            onChange = {onChange} 
             value = {searchValue}
 
         />
