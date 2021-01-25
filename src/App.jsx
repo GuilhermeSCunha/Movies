@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import {HomePage,  Search} from './pages/index';
 import { GlobalStyle} from './styles/index';
 import { ThemeProvider } from 'styled-components';
@@ -9,9 +10,12 @@ import {
   Route,
 } from "react-router-dom";
 
+
 function App() {
 
   const [ isDarkTheme, setIsDarkTheme] = usePersistedState( "colorTheme", false);
+
+  const [searchValue, setSearchValue] = useState ("");
 
   function changeTheme () {
     setIsDarkTheme(!isDarkTheme);
@@ -24,10 +28,22 @@ function App() {
         <Router>
         <Switch>
           <Route path="/" exact>
-            <HomePage onClick = {changeTheme} isDark = {isDarkTheme} />
+            <HomePage 
+
+              onClick = {changeTheme} 
+              isDark = {isDarkTheme} 
+              onChange = {(event) => setSearchValue(event.target.value)}
+              searchValue = {searchValue}
+
+            />
           </Route>
           <Route path="/search">
-              <Search isDark = {isDarkTheme} headerClick = {changeTheme} />
+              <Search 
+                firstSearch = {searchValue} 
+                isDark = {isDarkTheme} 
+                headerClick = {changeTheme} 
+                setSearchValue = {setSearchValue}
+              />
           </Route>
         </Switch>
     </Router>

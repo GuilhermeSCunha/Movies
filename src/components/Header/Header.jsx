@@ -4,7 +4,7 @@ import Logo from '../../assets/images/movies_logo.png';
 
 function Header(props) {
 
-    const { isDark, onClick } = props;
+    const { isDark, onSwitchClick, onSearchClick, onChange, SearchInputValue } = props;
 
     const theme = isDark ? "off" : "on";
 
@@ -12,11 +12,19 @@ function Header(props) {
 
         <HeaderContainer>
              <LogoSite src= {Logo} alt="Movies logo"/>
-            <InputSearch isHeader isDark = { isDark }/>
+
+            <InputSearch 
+            isHeader 
+            isDark = { isDark } 
+            onChange = { onChange } 
+            onClick = { onSearchClick } 
+            value = { SearchInputValue }
+            />
+
             <ThemeChanger>
 
                 <span> set dark theme {theme}</span>
-                <Switch  onClick = {onClick} isChecked = {isDark} />
+                <Switch  onClick = {onSwitchClick} isChecked = {isDark} />
 
             </ThemeChanger>
             
