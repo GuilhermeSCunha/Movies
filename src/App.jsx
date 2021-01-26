@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import {HomePage,  Search} from './pages/index';
+import {HomePage,  Search, NoMatch} from './pages/index';
 import { GlobalStyle} from './styles/index';
 import { ThemeProvider } from 'styled-components';
 import {Dark, Light} from './styles/index';
@@ -43,6 +43,9 @@ function App() {
                 headerClick = {changeTheme} 
                 setSearchValue = {setSearchValue}
               />
+          </Route>
+          <Route>
+              <NoMatch />
           </Route>
         </Switch>
     </Router>

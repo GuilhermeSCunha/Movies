@@ -1,4 +1,4 @@
-import { Container, Teste } from "./style";
+import { Container, ContentContainer, FirstInfos } from "./style";
 import { useHistory } from "react-router-dom";
 import { Header } from "../../components/index";
 import { GetApiData } from "../../services/apiData.service";
@@ -60,11 +60,23 @@ function Search(porps) {
                 SearchInputValue = {searchContent}
 
               />
+            
+            <ContentContainer>
 
-              <Teste>Search</Teste>
-              <button onClick = {() => history.push("/")} >go back</button>
-              <img src= {MoviesData.Poster} alt=""/>´
-              <span>{MoviesData.Error}</span>
+                <img src= {MoviesData.Poster} alt=""/>
+                {!MoviesData.Error &&<FirstInfos>
+                    <h2>{MoviesData.Title}</h2>
+                    <p>Released: {MoviesData.Released}</p>
+                    <p>Genre: {MoviesData.Genre}</p>
+                    <p>{MoviesData.Runtime}</p>
+                    
+                </FirstInfos>}
+                
+                <span>{MoviesData.Error}</span>
+
+            </ContentContainer>
+            
+
         </Container>
 
     );
