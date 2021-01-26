@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import {HomePage,  Search} from './pages/index';
+import {HomePage,  Search, NoMatch} from './pages/index';
 import { GlobalStyle} from './styles/index';
 import { ThemeProvider } from 'styled-components';
 import {Dark, Light} from './styles/index';
@@ -37,13 +37,15 @@ function App() {
 
             />
           </Route>
-          <Route path="/search">
+          <Route path="/search/:movieName">
               <Search 
-                firstSearch = {searchValue} 
                 isDark = {isDarkTheme} 
                 headerClick = {changeTheme} 
                 setSearchValue = {setSearchValue}
               />
+          </Route>
+          <Route>
+              <NoMatch />
           </Route>
         </Switch>
     </Router>

@@ -14,8 +14,10 @@ function HomePage (props) {
     const history = useHistory();
 
     function Search () {
+
+        const MovieName = searchValue.replace(/ /g, "+");
         
-        history.push("/search");
+        history.push(`/search/${MovieName}`);
 
     }
 
