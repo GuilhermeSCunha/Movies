@@ -4,13 +4,29 @@ import { Header } from "../../components/index";
 import { GetApiData } from "../../services/apiData.service";
 import { useEffect, useState } from "react";
 
+
 function Search(porps) {
 
-    const { isDark, headerClick, firstSearch, setSearchValue } = porps;
+    const { isDark, headerClick, setSearchValue } = porps;
+
     const history = useHistory();
+    const url = window.location.href.toString();
+    const movieName = url.replace("http://localhost:3000/search/", "");
+    
+
 
     const [MoviesData , SetMoviesData] = useState ("");
-    const [searchContent , setSearchContent] = useState(firstSearch);
+    const [searchContent , setSearchContent] = useState(movieName);
+
+    function changePage() {
+
+        const searchContentReady =  searchContent.replace(/ /g, "+");
+
+        history.push(`/search/${searchContentReady}`);
+        GetMoviesInfoFromApi ()
+
+        
+    }
     
     async function GetMoviesInfoFromApi () {
 
@@ -28,6 +44,7 @@ function Search(porps) {
     useEffect(() => {
         GetMoviesInfoFromApi();
         setSearchValue("");
+        console.log("url ::",movieName);
     },[])
 
     return (
@@ -38,7 +55,7 @@ function Search(porps) {
 
                 isDark = { isDark } 
                 onSwitchClick = {headerClick}
-                onSearchClick = {GetMoviesInfoFromApi}
+                onSearchClick = {changePage}
                 onChange = {(event) => setSearchContent(event.target.value) } 
                 SearchInputValue = {searchContent}
 

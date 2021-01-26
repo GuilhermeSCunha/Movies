@@ -37,9 +37,8 @@ function App() {
 
             />
           </Route>
-          <Route path="/search">
+          <Route path="/search/:movieName">
               <Search 
-                firstSearch = {searchValue} 
                 isDark = {isDarkTheme} 
                 headerClick = {changeTheme} 
                 setSearchValue = {setSearchValue}
