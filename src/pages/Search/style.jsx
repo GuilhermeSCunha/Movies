@@ -9,7 +9,7 @@ export const Container = styled.div`
     justify-content: flex-start;
 
     width: 100vw;
-    height: 100vh;
+    min-height: 100vh;
     background-color: ${({theme}) => theme.colors.background};
 
 
@@ -18,6 +18,7 @@ export const Container = styled.div`
 export const ContentContainer = styled.main`
 
     display: flex;
+    flex-direction: row;
     justify-content: center;
     align-items: flex-start;
 
@@ -34,9 +35,23 @@ export const ContentContainer = styled.main`
 
 `;
 
+export const ImageContainer = styled.div`
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+    background-color: ${({theme}) => theme.colors.tertiaryColor};
+    width: 300px;
+    height: 445px;
+
+`;
+
 export const FirstInfos = styled.div`
 
     padding-left: 8px;
+    background-color: transparent;
 
     h2{
 
