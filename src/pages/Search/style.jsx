@@ -7,14 +7,15 @@ export const Container = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-
-    @media (max-width: 768px) {
-        justify-content: center;
-    }
-
     width: 100vw;
     min-height: 100vh;
     background-color: ${({theme}) => theme.colors.background};
+    
+    div{
+        color: ${ ({theme}) => theme.colors.secondaryColor};
+
+        font-family: sans-serif;
+    }
 
 
 `;
@@ -54,6 +55,7 @@ export const ImageContainer = styled.div`
     background-color: ${({theme}) => theme.colors.tertiaryColor};
     width: 300px;
     height: 445px;
+    margin: 16px 0;
 
     @media (max-width: 768px) {
        margin-bottom: 8px;
@@ -64,6 +66,7 @@ export const ImageContainer = styled.div`
 export const Infos = styled.div`
 
     padding-left: 8px;
+    
     background-color: transparent;
 
     h2{
@@ -73,6 +76,7 @@ export const Infos = styled.div`
 
         @media (max-width: 768px) {
             text-align: center;
+            padding-top: 8px;
     }
 
 
