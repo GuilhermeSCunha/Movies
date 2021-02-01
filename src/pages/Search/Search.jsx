@@ -1,6 +1,6 @@
 import { Container, ContentContainer, Infos, ImageContainer } from "./style";
 import { useHistory } from "react-router-dom";
-import { Header } from "../../components/index";
+import { Header, Loader, LoaderMobile } from "../../components/index";
 import { GetApiData } from "../../services/apiData.service";
 import { useEffect, useState } from "react";
 
@@ -18,7 +18,7 @@ function Search(porps) {
     const [MoviesData , SetMoviesData] = useState ("");
     const [searchContent , setSearchContent] = useState(movieName);
     const [IsLoading , setIsLoading] = useState(true);
-  
+    const windowSize = window.innerWidth;
 
     function changePage() {
 
@@ -47,6 +47,8 @@ function Search(porps) {
     useEffect(() => {
         GetMoviesInfoFromApi();
         setSearchValue("");
+
+        console.log("window ::", windowSize);
     },[])
 
     return (
@@ -60,8 +62,7 @@ function Search(porps) {
                     SearchInputValue = {searchContent}
 
                 />
-            {IsLoading ? <span>LOADING...</span> : 
-            
+            {IsLoading ? windowSize <= 768 ? <LoaderMobile /> : <Loader/> : 
                     
                     <div>
                     {!MoviesData.Error &&

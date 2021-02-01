@@ -8,6 +8,10 @@ export const Container = styled.div`
     align-items: center;
     justify-content: flex-start;
 
+    @media (max-width: 768px) {
+        justify-content: center;
+    }
+
     width: 100vw;
     min-height: 100vh;
     background-color: ${({theme}) => theme.colors.background};
@@ -21,6 +25,11 @@ export const ContentContainer = styled.main`
     flex-direction: row;
     justify-content: center;
     align-items: flex-start;
+
+    @media (max-width: 768px) {
+        flex-direction: column;
+        align-items: center;
+    }
 
     padding-top: 16px;
     width: 100%;
@@ -46,6 +55,10 @@ export const ImageContainer = styled.div`
     width: 300px;
     height: 445px;
 
+    @media (max-width: 768px) {
+       margin-bottom: 8px;
+    }
+
 `;
 
 export const Infos = styled.div`
@@ -58,12 +71,21 @@ export const Infos = styled.div`
         color: ${ ({theme}) => theme.colors.secondaryColor};
         margin-left: 16px;
 
+        @media (max-width: 768px) {
+            text-align: center;
+    }
+
+
     }
 
     h3{
 
-    color: ${ ({theme}) => theme.colors.secondaryColor};
-    margin-left: 16px;
+        color: ${ ({theme}) => theme.colors.secondaryColor};
+        margin-left: 16px;
+
+        @media (max-width: 768px) {
+                text-align: center;
+        }
 
     }
 
