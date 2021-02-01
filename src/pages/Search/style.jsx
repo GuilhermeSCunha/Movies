@@ -48,7 +48,7 @@ export const ImageContainer = styled.div`
 
 `;
 
-export const FirstInfos = styled.div`
+export const Infos = styled.div`
 
     padding-left: 8px;
     background-color: transparent;
@@ -60,9 +60,31 @@ export const FirstInfos = styled.div`
 
     }
 
+    h3{
+
+    color: ${ ({theme}) => theme.colors.secondaryColor};
+    margin-left: 16px;
+
+    }
+
     p{
         color: ${ ({theme}) => theme.colors.secondaryColor};
-        margin-left: 16px;
+        margin: 8px 0  8px 16px;
+        max-width: 940px;
+        font-family: sans-serif;
+
+    }
+
+    div {
+        display: flex;
+        flex-direction: row;    
+        span{
+            color: ${ ({theme}) => theme.colors.secondaryColor};
+            margin: 8px 0  0 3px;
+            font-size: 16px;
+            max-width: 940px;
+
+        }
 
     }
 

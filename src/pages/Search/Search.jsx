@@ -1,4 +1,4 @@
-import { Container, ContentContainer, FirstInfos, ImageContainer } from "./style";
+import { Container, ContentContainer, Infos, ImageContainer } from "./style";
 import { useHistory } from "react-router-dom";
 import { Header } from "../../components/index";
 import { GetApiData } from "../../services/apiData.service";
@@ -17,6 +17,7 @@ function Search(porps) {
 
     const [MoviesData , SetMoviesData] = useState ("");
     const [searchContent , setSearchContent] = useState(movieName);
+    const [IsLoading , setIsLoading] = useState(true);
   
 
     function changePage() {
@@ -35,7 +36,8 @@ function Search(porps) {
 
             const api = await GetApiData(searchContent);
             SetMoviesData (api);
-            setSearchContent(""); 
+            setSearchContent("");
+            setIsLoading(false); 
 
         } catch (E) {
             console.error("error :: ", E);
@@ -48,63 +50,90 @@ function Search(porps) {
     },[])
 
     return (
-
         <Container>
+             <Header
 
-              <Header
+                    isDark = { isDark } 
+                    onSwitchClick = {headerClick}
+                    onSearchClick = {changePage}
+                    onChange = {(event) => setSearchContent(event.target.value) } 
+                    SearchInputValue = {searchContent}
 
-                isDark = { isDark } 
-                onSwitchClick = {headerClick}
-                onSearchClick = {changePage}
-                onChange = {(event) => setSearchContent(event.target.value) } 
-                SearchInputValue = {searchContent}
-
-              />
+                />
+            {IsLoading ? <span>LOADING...</span> : 
             
-            <div>
-            {!MoviesData.Error &&
-                <ContentContainer>
-                    <ImageContainer>
-                        {MoviesData.Poster === "N/A" ? <span>No Image</span> : <img src= {MoviesData.Poster} alt="poster"/>}
-                    </ImageContainer>
-
-                    <FirstInfos>
-                    <h2>{MoviesData.Title}</h2>
-                    <p>Released: {MoviesData.Released}</p>
-                    <p>Genre: {MoviesData.Genre}</p>
-                    <p>{MoviesData.Runtime}</p>
-                    <p>{MoviesData.Actors}</p>
-                    <p>{MoviesData.Awards}</p>
-                    <p>{MoviesData.Country}</p>
-                    <p>{MoviesData.Director}</p>
-                    <p>{MoviesData.Language}</p>
-                    <p>{MoviesData.Metascore}</p>
-                    <p>{MoviesData.Plot}</p>
-                    <p>{MoviesData.Rated}</p>
-                    <p>{MoviesData.Type}</p>
-                    <p>{MoviesData.Writer}</p>
-                    <p>{MoviesData.Year}</p>
-                    {MoviesData.totalSeasons && <p>{MoviesData.totalSeasons}</p>}
-                    <p style = {{color: "red"}}>{MoviesData['Ratings'] && MoviesData['Ratings'][0] && MoviesData['Ratings'][0]['Source']}</p>
-                    <p style = {{color: "red"}}>{MoviesData['Ratings'] && MoviesData['Ratings'][0] && MoviesData['Ratings'][0]['Value']}</p>
-                    <p style = {{color: "red"}}>{MoviesData['Ratings'] && MoviesData['Ratings'][1] && MoviesData['Ratings'][1]['Source']}</p>
-                    <p style = {{color: "red"}}>{MoviesData['Ratings'] && MoviesData['Ratings'][1] && MoviesData['Ratings'][1]['Value']}</p>
-                    <p style = {{color: "red"}}>{MoviesData['Ratings'] && MoviesData['Ratings'][2] && MoviesData['Ratings'][2]['Source']}</p>
-                    <p style = {{color: "red"}}>{MoviesData['Ratings'] && MoviesData['Ratings'][2] && MoviesData['Ratings'][2]['Value']}</p>
-                    <p>{MoviesData.Websit}</p>
-                    <p>{MoviesData.Production}</p>
-                   
                     
-                </FirstInfos>
-                </ContentContainer>
-            }
+                    <div>
+                    {!MoviesData.Error &&
+                        <div>
+                            <ContentContainer>
+                                <ImageContainer>
+                                    {MoviesData.Poster === "N/A" ? <span>No Image</span> : <img src= {MoviesData.Poster} alt="poster"/>}
+                                </ImageContainer>
+
+                                <Infos>
+                                <h2>{MoviesData.Title}</h2>
+                                <p>Released: {MoviesData.Released}</p>
+                                <p>Genre: {MoviesData.Genre}</p>
+                                <p>Duration: {MoviesData.Runtime}</p>
+                                <p>Actors: {MoviesData.Actors}</p>
+                                <p>Awards: {MoviesData.Awards}</p>
+                                <p>Country: {MoviesData.Country}</p>
+                                <p>Director: {MoviesData.Director}</p>
+                                <p>Language: {MoviesData.Language}</p>
+                                
+                                
                 
-                <span>{MoviesData.Error}</span>
+                                <p>Type(movie/series): {MoviesData.Type}</p>
+                                
+                                <p>Year: {MoviesData.Year}</p>
+                                {MoviesData.totalSeasons && <p>Number of seasons: {MoviesData.totalSeasons}</p>}
+                                
+                                {MoviesData.Websit && <p>Websit: {MoviesData.Websit}</p>}
+                                <p>Production: {MoviesData.Production}</p>
+                            
+                                
+                            </Infos>
 
-            </div>
+                            <Infos>
+                        
+                                    <h3>Ratings:</h3>
+                                    <p>Metascore: {MoviesData.Metascore}</p>
+                                    <div>
+                                        {MoviesData['Ratings'] && MoviesData['Ratings'][0] && <p>{MoviesData['Ratings'][0]['Source']}:</p>}
+                                        <span>{MoviesData['Ratings'] && MoviesData['Ratings'][0] && MoviesData['Ratings'][0]['Value']}</span>
+                                    </div>
+                                    <div>
+                                        {MoviesData['Ratings'] && MoviesData['Ratings'][1] && <p>{MoviesData['Ratings'][1]['Source']}:</p>}
+                                        <span>{MoviesData['Ratings'] && MoviesData['Ratings'][1] && MoviesData['Ratings'][1]['Value']}</span>
+                                    </div>
+                                    <div>
+                                        {MoviesData['Ratings'] && MoviesData['Ratings'][2] && <p>{MoviesData['Ratings'][2]['Source']}:</p>}
+                                        <span>{MoviesData['Ratings'] && MoviesData['Ratings'][2] && MoviesData['Ratings'][2]['Value']}</span>
+                                    </div>
+                                    
+                            </Infos>
+                            </ContentContainer>
+
+                            <ContentContainer>
+                                <Infos>
+                                    <h2>Movie summary:</h2>
+                                    <p>{MoviesData.Plot}</p>
+                                    <h2>Writer(s):</h2>
+                                    <p>{MoviesData.Writer}</p>
+                                </Infos>
+                            </ContentContainer>
+
+                        </div>
+
+                    }
+                        
+                        <span>{MoviesData.Error}</span>
+
+                    </div>
             
-
-        </Container>
+            }
+         </Container>
 
     );
     
