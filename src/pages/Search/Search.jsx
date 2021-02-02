@@ -48,7 +48,6 @@ function Search(porps) {
         GetMoviesInfoFromApi();
         setSearchValue("");
 
-        console.log("window ::", windowSize);
     },[])
 
     return (
