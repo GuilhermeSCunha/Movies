@@ -45,7 +45,7 @@ function App() {
               />
           </Route>
           <Route>
-              <NoMatch />
+              <NoMatch isDark = {isDarkTheme} headerClick = {changeTheme} />
           </Route>
         </Switch>
     </Router>

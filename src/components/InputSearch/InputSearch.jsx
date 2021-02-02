@@ -11,9 +11,9 @@ function InputSearch (props) {
         
         <SearchContainer Header = {isHeader} >
 
-            <input value = {value} onChange = {onChange} type="search" name="search" id="search" placeholder = "write the name of the movie"/>
+            <input value = {value} onChange = {onChange}  placeholder = "write the name of the movie"/>
 
-            <IconButton onClick = {onClick} iconName = { isDarkMode } alt = "search icon"/>
+            <IconButton onClick = {onClick}  iconName = { isDarkMode } alt = "search icon"/>
             
         </SearchContainer>
 

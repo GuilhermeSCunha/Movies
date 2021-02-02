@@ -8,7 +8,7 @@ function IconButton (props) {
 
     return (
 
-        <Button onClick = {onClick} disabled = {disable} >
+        <Button type="submit" onClick = {onClick} disabled = {disable} >
                 <img src= { Icon(iconName) } alt= {alt} /> 
         </Button> 
 
